@@ -25,6 +25,26 @@ public class GameController : MonoBehaviour
         	}
         }
 	} 
+    public GameState State
+    {
+        get
+        {
+            return state;
+        }
+        set
+        {
+            if (value == GameState.Play)
+            {
+                Time.timeScale = 1.0f;
+            }
+            else
+            {
+                Time.timeScale = 0.0f;
+            }
+            state = value;
+        }
+    }
+
 
     [SerializeField] private int dragonHitScore; 
     [SerializeField] private int dragonKillScore;

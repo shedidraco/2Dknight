@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class HUD : MonoBehaviour
 {
+	[SerializeField] private GameObject inventoryWindow;
     [SerializeField] private Text scoreLabel;
     static private HUD _instance;
 	[SerializeField] private Slider healthBar;
@@ -25,6 +26,17 @@ public class HUD : MonoBehaviour
 	public void SetScore(string scoreValue)
 	{
         scoreLabel.text = scoreValue;
+	}
+	public void ShowWindow(GameObject window)
+	{
+		window.GetComponent<Animator>().SetBool("Open", true);
+		GameController.Instance.State = GameState.Pause;
+	}
+
+	public void HideWindow(GameObject window)
+	{
+		window.GetComponent<Animator>().SetBool("Open", false);
+		GameController.Instance.State = GameState.Pause;
 	}
 
 }
