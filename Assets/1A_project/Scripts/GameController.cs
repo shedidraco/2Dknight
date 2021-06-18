@@ -90,4 +90,8 @@ public class GameController : MonoBehaviour
     	}
 
 	}
+    public void AddNewInventoryItem(CrystallType type, int amount)//метод который будет получать в качестве параметра тип и количество кристаллов
+    {
+
+    }
 }
