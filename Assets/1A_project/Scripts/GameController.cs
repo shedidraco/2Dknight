@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
 {
 
     [SerializeField] private  float  maxHealth;
+    private List<InventoryItem> inventory;
     public float MaxHealth { get => maxHealth; set => maxHealth = value; }
     private GameState state;
     private int score;
@@ -59,6 +60,7 @@ public class GameController : MonoBehaviour
 
     private void Awake() 
     {
+        inventory = new List<InventoryItem>();
         _instance = this;
         state = GameState.Play;
     } 
@@ -82,7 +84,6 @@ public class GameController : MonoBehaviour
             	//дракон убит
                 Score += dragonKillScore;
         	}
-        	Debug.Log("Dragon hit.Current score " +score);
         }
         if(victim.GetType() == typeof(Knight))
     	{
@@ -92,6 +93,6 @@ public class GameController : MonoBehaviour
 	}
     public void AddNewInventoryItem(CrystallType type, int amount)//метод который будет получать в качестве параметра тип и количество кристаллов
     {
-
+        inventory.Add(HUD.Instance.AddNewInventoryItem(type, amount));
     }
 }

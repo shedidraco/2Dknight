@@ -18,7 +18,7 @@ public class Chest : MonoBehaviour
             }
             if (amount == 0)
             {
-                amount =Random.Range(1, 6);
+                amount = Random.Range(1, 6);
             } 
             GameController.Instance.AddNewInventoryItem(content, amount);          
             Destroy(gameObject);
