@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum GameState { Play, Pause }
+public delegate void InventoryUsedCallback(InventoryItem item); 
 public class GameController : MonoBehaviour
 {
-
+    private Knight _knight;
     [SerializeField] private  float  maxHealth;
     private List<InventoryItem> inventory;
     public float MaxHealth { get => maxHealth; set => maxHealth = value; }
@@ -58,6 +59,8 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public Knight Knight { get => _knight; set => _knight = value; }
+
     private void Awake() 
     {
         inventory = new List<InventoryItem>();
@@ -69,6 +72,7 @@ public class GameController : MonoBehaviour
         HUD.Instance.HealthBar.maxValue = maxHealth;
         HUD.Instance.HealthBar.value = maxHealth;
         HUD.Instance.SetScore(Score.ToString());
+        HUD.Instance.UpdateCharacterValues(MaxHealth, _knight.Speed, _knight.Damage);   
     }
     public void Hit(IDestructable victim)
 	{
@@ -93,6 +97,35 @@ public class GameController : MonoBehaviour
 	}
     public void AddNewInventoryItem(CrystallType type, int amount)//метод который будет получать в качестве параметра тип и количество кристаллов
     {
-        inventory.Add(HUD.Instance.AddNewInventoryItem(type, amount));
+        InventoryItem newItem = HUD.Instance.AddNewInventoryItem(type, amount);
+        InventoryUsedCallback callback = new InventoryUsedCallback(InventoryItemUsed);
+        newItem.Callback = callback;
+        inventory.Add(newItem);
     }
+    public void InventoryItemUsed(InventoryItem item)
+    {
+        switch (item.CrystallType)
+        {
+        case CrystallType.Blue:
+        _knight.Speed += item.Quantity / 10f;
+        break;
+        case CrystallType.Red:
+        _knight.Damage += item.Quantity / 10f; 
+        break;
+        case CrystallType.Green:
+        MaxHealth += item.Quantity / 10f;
+        _knight.Health = MaxHealth;
+        HUD.Instance.HealthBar.maxValue = MaxHealth;
+        HUD.Instance.HealthBar.value = MaxHealth;
+        break;
+        default:
+                        Debug.LogError("Wrong crystall type!");
+        break;
+        }
+        inventory.Remove(item); // удаляем ссылку на предмет инвентаря из массива
+        Destroy(item.gameObject);  //уничтожаем геймобджект предмета инвентаря
+        HUD.Instance.UpdateCharacterValues(MaxHealth, _knight.Speed, _knight.Damage);
+    }
+
+
 }

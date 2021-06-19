@@ -18,7 +18,7 @@ public class Dragon : Creature,IDestructable
     void MoveDragon()
     {
         Vector2 velocity = rigidBody.velocity;
-  	    velocity.x = speed * transform.localScale.x * -1;
+  	    velocity.x = Speed * transform.localScale.x * -1;
        	rigidBody.velocity = velocity;
     }
 
@@ -43,7 +43,7 @@ public class Dragon : Creature,IDestructable
             if (!GameObject.Equals(hits[i].gameObject, gameObject))
             {
                 IDestructable destructable = hits[i].gameObject.GetComponent<IDestructable>();
-             	if (destructable != null) destructable.Hit(damage);	
+             	if (destructable != null) destructable.Hit(Damage);	
         	}
         }
     }

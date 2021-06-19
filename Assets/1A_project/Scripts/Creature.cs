@@ -6,9 +6,9 @@ public class Creature : MonoBehaviour, IDestructable
 {
 protected Animator animator; 
 	protected Rigidbody2D rigidBody;
-	[SerializeField] protected float speed;
-    [SerializeField] protected float damage;
-	[SerializeField] protected float health = 100;
+    [SerializeField] private float speed;
+    [SerializeField] private float damage;
+    [SerializeField] protected float health = 100;
 	public float Health
 	{
      	get
@@ -20,7 +20,11 @@ protected Animator animator;
             health = value;
         }
 	}
-	void Awake()
+
+    public float Speed { get => speed; set => speed = value; }
+    public float Damage { get => damage; set => damage = value; }
+
+    void Awake()
 	{
     	animator = gameObject.GetComponentInChildren<Animator>();
      	rigidBody = gameObject.GetComponent<Rigidbody2D>();

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InventoryItem : MonoBehaviour
 {
+    private InventoryUsedCallback callback;
     [SerializeField] private List<Sprite> sprites;
     [SerializeField] private Text label;
     [SerializeField] private Text count;
@@ -13,10 +14,12 @@ public class InventoryItem : MonoBehaviour
     private float quantity;
     public CrystallType CrystallType { get => crystallType; set => crystallType = value; }
     public float Quantity { get => quantity; set => quantity = value; }
+    public InventoryUsedCallback Callback { get => callback; set => callback = value; }
 
     private void Start()
     {
         SpriteToObject();
+        gameObject.GetComponent<Button>().onClick.AddListener( () => callback(this) );
     }
     void SpriteToObject()
     {

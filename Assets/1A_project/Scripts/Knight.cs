@@ -31,6 +31,7 @@ public class Knight : Creature,IDestructable
   private void Start()
   {
     health = GameController.Instance.MaxHealth;
+    GameController.Instance.Knight = this;
   }
   private void Update() 
   {
@@ -44,7 +45,7 @@ public class Knight : Creature,IDestructable
   {
     animator.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
     Vector2 velocity = rigidBody.velocity;
-    velocity.x = Input.GetAxis("Horizontal") * speed;
+    velocity.x = Input.GetAxis("Horizontal") * Speed;
     rigidBody.velocity = velocity;
 
     if (OnStair) //движение по лестнице
@@ -96,8 +97,7 @@ public class Knight : Creature,IDestructable
         IDestructable destructable = hits[i].gameObject.GetComponent<IDestructable>();
         if (destructable != null) 
         {
-          Debug.Log("Hit " +    destructable.ToString());
-          destructable.Hit(damage);
+          destructable.Hit(Damage);
           break;
         }
       }

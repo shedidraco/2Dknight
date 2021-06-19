@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class HUD : MonoBehaviour
 {
-	[SerializeField]private Transform inventoryContainer;
+    [SerializeField]private Text damageValue;
+    [SerializeField]private Text healthValue;
+    [SerializeField]private Text speedValue;
+    [SerializeField]private Transform inventoryContainer;
 	[SerializeField]private InventoryItem inventoryItemPrefab;
 	[SerializeField] private GameObject inventoryWindow;
     [SerializeField] private Text scoreLabel;
@@ -19,6 +22,11 @@ public class HUD : MonoBehaviour
 			return _instance;
 		}
 	}
+
+    public Text SpeedValue { get => speedValue; set => speedValue = value; }
+    public Text HealthValue { get => healthValue; set => healthValue = value; }
+    public Text DamageValue { get => damageValue; set => damageValue = value; }
+
     private void Awake()
 	{
        	_instance = this;
@@ -47,4 +55,11 @@ public class HUD : MonoBehaviour
 		newItem.CrystallType = crystallType;
 		return newItem;
 	}
+	public void UpdateCharacterValues(float newHealth, float newSpeed, float newDamage)
+	{
+	healthValue.text = newHealth.ToString();
+	speedValue.text = newSpeed.ToString();
+	damageValue.text = newDamage.ToString();
+	}
+
 }

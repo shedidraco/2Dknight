@@ -4566,12 +4566,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96314247664f03d47a0a2e499ac2dda2, type: 3}
---- !u!224 &2035466064579344541 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9018697973172123687, guid: 48e0b240c5b51476c9239a193cfff046,
-    type: 3}
-  m_PrefabInstance: {fileID: 6996262443712807098}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3506757845375357260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4980,28 +4974,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6996262441840371543, guid: 48e0b240c5b51476c9239a193cfff046,
-        type: 3}
-      propertyPath: inventoryContainer
-      value: 
-      objectReference: {fileID: 2035466064579344541}
-    - target: {fileID: 6996262441840371543, guid: 48e0b240c5b51476c9239a193cfff046,
-        type: 3}
-      propertyPath: inventoryItemPrefab
-      value: 
-      objectReference: {fileID: -3945622247898092662, guid: fad93d333699b4bf59738e5ed8ad7963,
-        type: 3}
-    - target: {fileID: 6996262442301305379, guid: 48e0b240c5b51476c9239a193cfff046,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -6834524911116659543, guid: 3ac9d7af8282f9d4d9b01d1c81830718,
-        type: 3}
-    - target: {fileID: 6996262442301305389, guid: 48e0b240c5b51476c9239a193cfff046,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.99261475
       objectReference: {fileID: 0}
     - target: {fileID: 6996262443054227768, guid: 48e0b240c5b51476c9239a193cfff046,
         type: 3}
