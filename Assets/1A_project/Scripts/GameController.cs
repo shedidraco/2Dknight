@@ -124,8 +124,6 @@ public class GameController : MonoBehaviour
         }
         inventory.Remove(item); // удаляем ссылку на предмет инвентаря из массива
         Destroy(item.gameObject);  //уничтожаем геймобджект предмета инвентаря
-        HUD.Instance.UpdateCharacterValues(MaxHealth, _knight.Speed, _knight.Damage);
+        HUD.Instance.UpdateCharacterValues(_knight.Health, _knight.Speed, _knight.Damage);
     }
-
-
 }
