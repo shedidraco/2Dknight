@@ -103,4 +103,8 @@ public class Knight : Creature,IDestructable
       }
     }   
   } 
+  public override void Die()
+	{
+    GameController.Instance.GameOver();
+	}
 }

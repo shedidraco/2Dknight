@@ -144,4 +144,8 @@ public class GameController : MonoBehaviour
 	{
     		HUD.Instance.ShowLevelWonWindow();
 	}
+    public void GameOver() 
+    {
+    	HUD.Instance.ShowLevelLoseWindow();
+	}
 }

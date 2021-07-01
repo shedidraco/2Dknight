@@ -11,6 +11,7 @@ public class HUD : MonoBehaviour
 	[SerializeField]private InventoryItem inventoryItemPrefab;
 	[SerializeField] private GameObject inventoryWindow;
 	[SerializeField] private GameObject LevelWonWindow;
+	[SerializeField] private GameObject LevelLoseWindow;
     [SerializeField] private Text scoreLabel;
     static private HUD _instance;
 	[SerializeField] private Slider healthBar;
@@ -78,8 +79,11 @@ public class HUD : MonoBehaviour
 	}
 	public void ShowLevelWonWindow()
 	{
-    	LevelWonWindow.SetActive(true);
-		GameController.Instance.State = GameState.Pause;
+    	ShowWindow(LevelWonWindow);	
 	}
+		public void ShowLevelLoseWindow() {
+        ShowWindow(LevelLoseWindow);
+	}
+
 
 }

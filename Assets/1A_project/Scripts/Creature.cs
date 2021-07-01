@@ -30,7 +30,7 @@ protected Animator animator;
      	rigidBody = gameObject.GetComponent<Rigidbody2D>();
 	}
  
-	public void Die()
+	public virtual void Die()
 	{
     	Destroy(gameObject);
 	}
