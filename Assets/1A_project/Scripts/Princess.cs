@@ -10,7 +10,7 @@ public class Princess : MonoBehaviour
 
      	if (knight != null)
     	{
-        		//Рыцарь нашел принцессу
+        	GameController.Instance.PrincessFound(); 
     	}
 	}
 }

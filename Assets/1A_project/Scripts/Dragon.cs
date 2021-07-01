@@ -30,8 +30,8 @@ public class Dragon : Creature,IDestructable
     }
     void ChangeDirection()
     {
-        if (transform.localScale.x < 0)transform.localScale = new Vector3(1.3f,1.3f,1);//даркон смотрит в право с учетом моштаба спрайта
-    	else transform.localScale = new Vector3(-1.3f, 1.3f, 1);//дракон смотрит в лево с учетом маштаба
+        if (transform.localScale.x < 0)transform.localScale = new Vector3(2f,2f,1);//даркон смотрит в право с учетом моштаба спрайта
+    	else transform.localScale = new Vector3(-2f, 2f, 1);//дракон смотрит в лево с учетом маштаба
     }
     public void Attack()	
     {

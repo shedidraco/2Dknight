@@ -10,6 +10,7 @@ public class HUD : MonoBehaviour
     [SerializeField]private Transform inventoryContainer;
 	[SerializeField]private InventoryItem inventoryItemPrefab;
 	[SerializeField] private GameObject inventoryWindow;
+	[SerializeField] private GameObject LevelWonWindow;
     [SerializeField] private Text scoreLabel;
     static private HUD _instance;
 	[SerializeField] private Slider healthBar;
@@ -60,6 +61,25 @@ public class HUD : MonoBehaviour
 	healthValue.text = newHealth.ToString();
 	speedValue.text = newSpeed.ToString();
 	damageValue.text = newDamage.ToString();
+	}
+	public void ButtonNext()
+	{ 
+		GameController.Instance.LoadNextLevel();
+	}
+
+	public void ButtonRestart()
+	{ 
+		GameController.Instance.RestartLevel();
+	}  
+
+	public void ButtonMainMenu()
+	{
+		GameController.Instance.LoadNextLevel();	
+	}
+	public void ShowLevelWonWindow()
+	{
+    	LevelWonWindow.SetActive(true);
+		GameController.Instance.State = GameState.Pause;
 	}
 
 }

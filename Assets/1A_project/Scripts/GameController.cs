@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState { Play, Pause }
 public delegate void InventoryUsedCallback(InventoryItem item); 
@@ -119,11 +120,28 @@ public class GameController : MonoBehaviour
         HUD.Instance.HealthBar.value = MaxHealth;
         break;
         default:
-                        Debug.LogError("Wrong crystall type!");
         break;
         }
         inventory.Remove(item); // удаляем ссылку на предмет инвентаря из массива
         Destroy(item.gameObject);  //уничтожаем геймобджект предмета инвентаря
         HUD.Instance.UpdateCharacterValues(_knight.Health, _knight.Speed, _knight.Damage);
     }
+    public void LoadNextLevel()
+	{
+    	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1,
+        LoadSceneMode.Single);
+	}
+    public void RestartLevel()
+	{
+    	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex,
+        LoadSceneMode.Single);
+	}
+    public void LoadMainMenu()
+	{
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+	}
+    public void PrincessFound()
+	{
+    		HUD.Instance.ShowLevelWonWindow();
+	}
 }
