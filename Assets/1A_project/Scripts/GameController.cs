@@ -135,10 +135,12 @@ public class GameController : MonoBehaviour
 	{
     	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex,
         LoadSceneMode.Single);
+        Instance.State = GameState.Play;
 	}
     public void LoadMainMenu()
 	{
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        Instance.State = GameState.Play;
 	}
     public void PrincessFound()
 	{
