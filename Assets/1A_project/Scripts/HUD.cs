@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+
 public class HUD : MonoBehaviour
 {
     [SerializeField]private Text damageValue;
@@ -12,6 +15,8 @@ public class HUD : MonoBehaviour
 	[SerializeField] private GameObject inventoryWindow;
 	[SerializeField] private GameObject LevelWonWindow;
 	[SerializeField] private GameObject LevelLoseWindow;
+	[SerializeField] private GameObject InGameMenu;
+
     [SerializeField] private Text scoreLabel;
     static private HUD _instance;
 	[SerializeField] private Slider healthBar;
@@ -75,7 +80,7 @@ public class HUD : MonoBehaviour
 
 	public void ButtonMainMenu()
 	{
-		GameController.Instance.LoadNextLevel();	
+		SceneManager.LoadScene("MainMenu",LoadSceneMode.Single);	
 	}
 	public void ShowLevelWonWindow()
 	{
@@ -84,6 +89,4 @@ public class HUD : MonoBehaviour
 		public void ShowLevelLoseWindow() {
         ShowWindow(LevelLoseWindow);
 	}
-
-
 }

@@ -130,6 +130,7 @@ public class GameController : MonoBehaviour
 	{
     	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1,
         LoadSceneMode.Single);
+        Instance.State = GameState.Play;
 	}
     public void RestartLevel()
 	{
