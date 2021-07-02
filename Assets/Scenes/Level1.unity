@@ -5789,7 +5789,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 1146220153870551574}
+  m_Camera: {fileID: 1678442063}
   m_PlaneDistance: 490
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -7778,6 +7778,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!20 &1678442063 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6580566235281003219, guid: 05efa42354988403887a5ee6b965d586,
+    type: 3}
+  m_PrefabInstance: {fileID: 5843959735734910405}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1692898904
 GameObject:
   m_ObjectHideFlags: 0
@@ -9855,12 +9861,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9362c5122d37c472998212909201ce74, type: 3}
---- !u!20 &1146220153870551574 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 6841490389559621587, guid: 05efa42354988403887a5ee6b965d586,
-    type: 3}
-  m_PrefabInstance: {fileID: 5843959735734910405}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1200581548146846461
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10532,6 +10532,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3851968865160955431, guid: 05efa42354988403887a5ee6b965d586,
+        type: 3}
+      propertyPath: m_Name
+      value: MainCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 5843959734957120657, guid: 05efa42354988403887a5ee6b965d586,
         type: 3}
       propertyPath: m_Name
@@ -10596,6 +10601,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209728180958193808, guid: 05efa42354988403887a5ee6b965d586,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209728180958193808, guid: 05efa42354988403887a5ee6b965d586,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209728180958193808, guid: 05efa42354988403887a5ee6b965d586,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6580566235281003219, guid: 05efa42354988403887a5ee6b965d586,
+        type: 3}
+      propertyPath: far clip plane
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05efa42354988403887a5ee6b965d586, type: 3}
