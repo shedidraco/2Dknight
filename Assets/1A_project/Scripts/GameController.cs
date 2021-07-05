@@ -7,6 +7,7 @@ public enum GameState { Play, Pause }
 public delegate void InventoryUsedCallback(InventoryItem item); 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] private Audio audioManager;
     private Knight _knight;
     [SerializeField] private  float  maxHealth;
     private List<InventoryItem> inventory;
@@ -56,18 +57,36 @@ public class GameController : MonoBehaviour
     {
         get
         {
+            if (_instance == null)
+            {
+                GameObject gameController =
+                Instantiate(Resources.Load("Prefabs/GameController")) as GameObject;
+                _instance = gameController.GetComponent<GameController>();
+            }
             return _instance;
-        }
+    	}
     }
 
     public Knight Knight { get => _knight; set => _knight = value; }
 
     private void Awake() 
     {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            if (_instance != this)
+            {
+                Destroy(gameObject);
+        	}
+    	}
+        DontDestroyOnLoad(gameObject);
+ 		State = GameState.Play;
         inventory = new List<InventoryItem>();
-        _instance = this;
-        state = GameState.Play;
     } 
+
     private void Start() 
     {
         HUD.Instance.HealthBar.maxValue = maxHealth;
