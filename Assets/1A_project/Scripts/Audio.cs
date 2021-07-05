@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable] public class Audio : MonoBehaviour
+[System.Serializable] public class Audio
 {
 #region Private_Variables
 
